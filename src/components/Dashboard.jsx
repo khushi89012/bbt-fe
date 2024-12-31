@@ -3,6 +3,9 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import './Dashboard.css';
 
+// eslint-disable-next-line no-undef
+let api = 'https://bbt-api.onrender.com'
+
 const Dashboard = () => {
   const navigate = useNavigate(); // Initialize navigate
   const [bio, setBio] = useState('');
@@ -46,7 +49,7 @@ const Dashboard = () => {
     formData.append('uploadedBy', user);
 
     try {
-      const response = await axios.post('http://localhost:5000/upload', formData, {
+      const response = await axios.post(`${api}/upload`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
